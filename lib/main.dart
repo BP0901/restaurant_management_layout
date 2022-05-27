@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:restaurant_management/Screens/ChefActivity.dart';
 import 'package:restaurant_management/Screens/login_screen.dart';
 import 'components/flash_message.dart';
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
-  
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -33,38 +35,73 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Restaurant"),
+        title: const Text("My Restaurant"),
       ),
       body: Center(
         child: Column(
-          
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(onPressed: (){
-              Get.to(const SigninScreen());
-            },
-            child: const Text("Trang login")),
+            const Login(),
             OutlinedButton(onPressed: () {}, child: Text("Trang NV phục vụ")),
-            OutlinedButton(onPressed: () {}, child: Text("Trang NV kho")),
-            OutlinedButton(onPressed: () {}, child: Text("Trang NV bếp")),
+            const ChefScreen(),
             OutlinedButton(onPressed: () {}, child: Text("Trang NV thu ngân")),
-            ElevatedButton(onPressed: (){
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: FlashMessageScreen(
-                  type: "Thông báo",
-                  content : "nội dung",
-                  color : Colors.red
-                ),
-                behavior: SnackBarBehavior.floating,
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                ),
-              );
-            }, child: const Text("Message")),
+            const FlashSnackBar(),
           ],
         ),
       ),
-     
     );
+  }
+}
+
+class ChefScreen extends StatelessWidget {
+  const ChefScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Get.to(const ChefActivity());
+        },
+        child: const Text("Trang NV bếp"));
+  }
+}
+
+class Login extends StatelessWidget {
+  const Login({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Get.to(const SigninScreen());
+        },
+        child: const Text("Trang login"));
+  }
+}
+
+class FlashSnackBar extends StatelessWidget {
+  const FlashSnackBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: FlashMessageScreen(
+                  type: "Thông báo", content: "nội dung", color: Colors.red),
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
+          );
+        },
+        child: const Text("Message"));
   }
 }
