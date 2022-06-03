@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restaurant_management/Screens/ChefActivity.dart';
+import 'package:restaurant_management/Screens/ManagementActivity.dart';
 import 'package:restaurant_management/Screens/login_screen.dart';
 import 'components/flash_message.dart';
+import 'package:restaurant_management/Screens/ManagementActivity.dart';
+import 'package:restaurant_management/Screens/CashierActivity.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,13 +46,44 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Login(),
             OutlinedButton(onPressed: () {}, child: Text("Trang NV phục vụ")),
+            const goManagementActivity(),
             const ChefScreen(),
-            OutlinedButton(onPressed: () {}, child: Text("Trang NV thu ngân")),
+            const gotoCashier(),
             const FlashSnackBar(),
           ],
         ),
       ),
     );
+  }
+}
+
+class gotoCashier extends StatelessWidget {
+  const gotoCashier({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Get.to(CashierActivity());
+        },
+        child: const Text("Trang NV thu ngân"));
+  }
+}
+
+class goManagementActivity extends StatelessWidget {
+  const goManagementActivity({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Get.to(ManagermentActivity());
+        },
+        child: const Text("Trang NV quản lý"));
   }
 }
 

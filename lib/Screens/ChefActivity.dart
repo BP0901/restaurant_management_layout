@@ -71,7 +71,15 @@ class confirmedListFood extends StatelessWidget {
             itemBuilder: (context, index) {
               return Row(
                 children: [
-                  Expanded(child: Text("Món ăn $index")),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text("1"),
+                  ),
+                  Expanded(
+                      child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text("Món ăn $index"),
+                  )),
                   IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -110,7 +118,15 @@ class watingListFood extends StatelessWidget {
             itemBuilder: (context, index) {
               return Row(
                 children: [
-                  Expanded(child: Text("Món ăn $index")),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text("1"),
+                  ),
+                  Expanded(
+                      child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text("Món ăn $index"),
+                  )),
                   IconButton(
                       onPressed: () {},
                       icon: const Icon(

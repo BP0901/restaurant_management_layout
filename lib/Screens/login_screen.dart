@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_management/components/primary_button.dart';
 import 'package:restaurant_management/Util/constants.dart';
 
-
 class SigninScreen extends StatefulWidget {
   const SigninScreen({Key? key}) : super(key: key);
 
@@ -21,73 +20,94 @@ class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: kDefaultPadding,
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/login_background.jpg"),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          child: Column(
-            children: <Widget>[
-              Container(
-                height: 100,
-              ),
-              Image.asset(
-                "assets/images/Logo_light.png",
-                height: 146,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: TextField(
-                    controller: _usernameController,
-                    decoration: InputDecoration(
-                        labelText: "Email",
-                        errorText: _isEmailValid ? null : _emailErr,
-                        labelStyle: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold))),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-                child: Stack(
-                    alignment: AlignmentDirectional.centerEnd,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                        child: TextField(
-                            controller: _passwordController,
-                            obscureText: _passStatetus,
-                            decoration: InputDecoration(
-                                errorText: _isPassValid ? null : _passErr,
-                                labelText: "Password",
-                                labelStyle: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold))),
-                      ),
-                      TextButton(
-                          onPressed: _showOrHidePass,
-                          child: Text(
-                            _passStatetus ? "Show" : "Hide",
-                            style: const TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold),
-                          ))
-                    ]),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: PrimaryButton(
-                    key: null,
-                    color: Colors.blue,
-                    text: "Sign in",
-                    press: (){},
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: kDefaultPadding,
+            ),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 30,
+                ),
+                Image.asset(
+                  "assets/images/logo.png",
+                  height: 130,
+                ),
+                const Text(
+                  kRestaurantName,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 15,
+                      color: Colors.white),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 40, 0, 5),
+                  child: TextField(
+                      controller: _usernameController,
+                      decoration: InputDecoration(
+                          labelText: "Username",
+                          errorText: _isEmailValid ? null : _emailErr,
+                          labelStyle: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+                  child: Stack(
+                      alignment: AlignmentDirectional.centerEnd,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                          child: TextField(
+                              controller: _passwordController,
+                              obscureText: _passStatetus,
+                              decoration: InputDecoration(
+                                  errorText: _isPassValid ? null : _passErr,
+                                  labelText: "Password",
+                                  labelStyle: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white))),
+                        ),
+                        TextButton(
+                            onPressed: _showOrHidePass,
+                            child: Text(
+                              _passStatetus ? "Show" : "Hide",
+                              style: const TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
+                            ))
+                      ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 40,
+                    child: PrimaryButton(
+                      key: null,
+                      color: kPrimaryColor,
+                      text: "Sign in",
+                      press: () {},
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
