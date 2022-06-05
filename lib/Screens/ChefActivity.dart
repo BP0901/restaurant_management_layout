@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:restaurant_management/Util/constants.dart';
 
 class ChefActivity extends StatefulWidget {
   const ChefActivity({Key? key}) : super(key: key);
@@ -19,8 +20,8 @@ class _ChefActivityState extends State<ChefActivity> {
   }
 
   final List<Widget> _children = [
-    watingListFood(),
-    confirmedListFood(),
+    const watingListFood(),
+    const confirmedListFood(),
   ];
 
   @override
@@ -33,6 +34,9 @@ class _ChefActivityState extends State<ChefActivity> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
+        backgroundColor: kSecondaryColor,
+        selectedItemColor: kPrimaryColor,
+        elevation: 2.0,
         onTap: onTabTapped,
         items: [
           const BottomNavigationBarItem(
@@ -56,42 +60,55 @@ class confirmedListFood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-            width: MediaQuery.of(context).size.width,
-            child: const Center(
-                child: Text(
-              "Món cần làm",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ))),
-        Expanded(
-          child: ListView.builder(
-            itemCount: 50,
-            itemBuilder: (context, index) {
-              return Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text("1"),
-                  ),
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text("Món ăn $index"),
-                  )),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.check_box,
-                        color: Colors.green,
-                      )),
-                ],
-              );
-            },
+    return Container(
+      decoration: const BoxDecoration(
+        color: kSecondaryColor,
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: const Center(
+                  child: Text(
+                "Món cần làm",
+                textScaleFactor: 2,
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ))),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 50,
+              itemBuilder: (context, index) {
+                return Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "1",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        "Món ăn $index",
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.check_box,
+                          color: kPrimaryColor,
+                        )),
+                  ],
+                );
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -103,48 +120,61 @@ class watingListFood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-            width: MediaQuery.of(context).size.width,
-            child: const Center(
-                child: Text(
-              "Món chờ xác nhận",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ))),
-        Expanded(
-          child: ListView.builder(
-            itemCount: 50,
-            itemBuilder: (context, index) {
-              return Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text("1"),
-                  ),
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text("Món ăn $index"),
-                  )),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.check_box,
-                        color: Colors.green,
-                      )),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.close,
-                        color: Colors.red,
-                      ))
-                ],
-              );
-            },
+    return Container(
+      decoration: const BoxDecoration(
+        color: kSecondaryColor,
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: const Center(
+                  child: Text(
+                "Món chờ xác nhận",
+                textScaleFactor: 2,
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ))),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 50,
+              itemBuilder: (context, index) {
+                return Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "1",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        "Món ăn $index",
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.check_box,
+                          color: Colors.green,
+                        )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.close,
+                          color: Colors.red,
+                        ))
+                  ],
+                );
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
