@@ -3,6 +3,7 @@ import 'Management/componments/DrawerMGTM.dart';
 import 'Management/MenuScreen/MenuActivity.dart';
 import 'Management/StaffScreen/StaffActivity.dart';
 import 'Management/TableScreen/TableActivity.dart';
+import '../components/primary_button.dart';
 
 class ManagermentActivity extends StatefulWidget {
   ManagermentActivity({Key? key}) : super(key: key);
@@ -33,14 +34,58 @@ class gotoManagementStaff extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) =>
-                  StaffPage() //you can send parameters using constructor
-              ));
-        },
-        child: const Text("Quản lý nhân viên"));
+    return Container(
+      child: Column(
+        children: [
+          PrimaryButton(
+            text: 'Quản lý nhân viên',
+            press: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      StaffPage() //you can send parameters using constructor
+                  ));
+            },
+            color: Colors.blue,
+            padding: const EdgeInsets.all(8.0),
+          ),
+          Padding(padding: EdgeInsets.only(top: 10)),
+          PrimaryButton(
+            text: 'Quản lý Menu',
+            press: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      MenuPage() //you can send parameters using constructor
+                  ));
+            },
+            color: Colors.blue,
+            padding: const EdgeInsets.all(8.0),
+          ),
+          Padding(padding: EdgeInsets.only(top: 10)),
+          PrimaryButton(
+            text: 'Quản lý bàn ăn',
+            press: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      TablePage() //you can send parameters using constructor
+                  ));
+            },
+            color: Colors.blue,
+            padding: const EdgeInsets.all(8.0),
+          )
+        ],
+      ),
+      // margin: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.all(10),
+    )
+        // ElevatedButton(
+        //     onPressed: () {
+        //       Navigator.of(context).push(MaterialPageRoute(
+        //           builder: (context) =>
+        //               StaffPage() //you can send parameters using constructor
+        //           ));
+        //     },
+        //     child: const Text("Quản lý nhân viên"))
+        ;
   }
 }
 
@@ -58,7 +103,7 @@ class gotoManagementMenu extends StatelessWidget {
                   MenuPage() //you can send parameters using constructor
               ));
         },
-        child: const Text("Quản lý nhân viên"));
+        child: const Text("Quản lý menu"));
   }
 }
 
@@ -76,6 +121,6 @@ class gotoManagementTable extends StatelessWidget {
                   TablePage() //you can send parameters using constructor
               ));
         },
-        child: const Text("Quản lý nhân viên"));
+        child: const Text("Quản lý bàn ăn"));
   }
 }

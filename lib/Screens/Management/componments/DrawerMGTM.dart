@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../StaffScreen/StaffActivity.dart';
+import '../MenuScreen/MenuActivity.dart';
+import '../TableScreen/TableActivity.dart';
 
 class DrawerMGTM extends StatelessWidget {
   @override
@@ -28,7 +30,7 @@ class DrawerMGTM extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) =>
-                      StaffPage() //you can send parameters using constructor
+                      MenuPage() //you can send parameters using constructor
                   ));
             },
           ),
@@ -37,7 +39,7 @@ class DrawerMGTM extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) =>
-                      StaffPage() //you can send parameters using constructor
+                      TablePage() //you can send parameters using constructor
                   ));
             },
           ),

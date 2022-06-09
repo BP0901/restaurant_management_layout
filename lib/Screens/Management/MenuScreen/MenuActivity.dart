@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../Model/Staff.dart';
+import '../componments/DrawerMGTM.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class _MenuPage extends State<MenuPage> {
       appBar: AppBar(
         title: Text('Quản lý thực đơn'),
       ),
+      drawer: DrawerMGTM(),
       body: Center(
         child: Text(
           'This show Foods\'s list',
