@@ -32,22 +32,33 @@ class _ChefActivityState extends State<ChefActivity> {
           child: _children[_currentIndex],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        backgroundColor: kSecondaryColor,
-        selectedItemColor: kPrimaryColor,
-        elevation: 2.0,
-        onTap: onTabTapped,
-        items: [
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.add_task),
-            label: 'Món cần làm',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.article),
-            label: 'Món đang làm',
-          ),
-        ],
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              offset: Offset(0.5, 3),
+              color: Colors.black,
+              blurRadius: 10,
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          backgroundColor: kSecondaryColor,
+          selectedItemColor: kPrimaryColor,
+          elevation: 2.0,
+          onTap: onTabTapped,
+          items: [
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.add_task),
+              label: 'Món cần làm',
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.article),
+              label: 'Món đang làm',
+            ),
+          ],
+        ),
       ),
     );
   }

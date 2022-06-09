@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restaurant_management/Screens/ChefActivity.dart';
 import 'package:restaurant_management/Screens/ManagementActivity.dart';
+import 'package:restaurant_management/Screens/WaiterActivity.dart';
 import 'package:restaurant_management/Screens/login_screen.dart';
 import 'components/flash_message.dart';
 import 'package:restaurant_management/Screens/ManagementActivity.dart';
@@ -45,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Login(),
-            OutlinedButton(onPressed: () {}, child: Text("Trang NV phục vụ")),
+            const gotoWaiterActivity(),
             const goManagementActivity(),
             const ChefScreen(),
             const gotoCashier(),
@@ -54,6 +55,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+}
+
+class gotoWaiterActivity extends StatelessWidget {
+  const gotoWaiterActivity({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Get.to(WaiterActivity());
+        },
+        child: const Text("Trang NV phụ vụ"));
   }
 }
 

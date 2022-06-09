@@ -11,12 +11,12 @@ class SigninScreen extends StatefulWidget {
 
 class _SigninScreenState extends State<SigninScreen> {
   bool _passStatetus = true;
-  final TextEditingController _usernameController = new TextEditingController();
-  final TextEditingController _passwordController = new TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final _emailErr = "Email không đúng";
   final _passErr = "Password không đúng";
-  var _isEmailValid = true;
-  var _isPassValid = true;
+  final _isEmailValid = true;
+  final _isPassValid = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
