@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'Management/componments/DrawerMGTM.dart';
+import 'Management/MenuScreen/MenuActivity.dart';
+import 'Management/StaffScreen/StaffActivity.dart';
+import 'Management/TableScreen/TableActivity.dart';
 
 class ManagermentActivity extends StatefulWidget {
   ManagermentActivity({Key? key}) : super(key: key);
@@ -13,34 +17,65 @@ class _ManagermentActivityState extends State<ManagermentActivity> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: const Text("Trang quản lý thông tin")),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Drawer Header'),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-            ],
-          ),
+        drawer: DrawerMGTM(),
+        body: SafeArea(
+          child: gotoManagementStaff(),
         ),
       ),
     );
+  }
+}
+
+class gotoManagementStaff extends StatelessWidget {
+  const gotoManagementStaff({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  StaffPage() //you can send parameters using constructor
+              ));
+        },
+        child: const Text("Quản lý nhân viên"));
+  }
+}
+
+class gotoManagementMenu extends StatelessWidget {
+  const gotoManagementMenu({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  MenuPage() //you can send parameters using constructor
+              ));
+        },
+        child: const Text("Quản lý nhân viên"));
+  }
+}
+
+class gotoManagementTable extends StatelessWidget {
+  const gotoManagementTable({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  TablePage() //you can send parameters using constructor
+              ));
+        },
+        child: const Text("Quản lý nhân viên"));
   }
 }
