@@ -11,7 +11,8 @@ class TablePage extends StatefulWidget {
 class _TablePage extends State<TablePage> {
   final _contentController = TextEditingController();
   final _amountController = TextEditingController();
-
+  String _radioVal = "";
+  double _slider2Val = 50.0;
   //define states
   Tabled _table = Tabled(id: '', name: '', type: true);
   List<Tabled> _tables = List<Tabled>.empty();
@@ -43,14 +44,32 @@ class _TablePage extends State<TablePage> {
                     },
                   )),
               Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    decoration: InputDecoration(labelText: 'Type'),
-                    controller: _amountController,
-                    onChanged: (text) {
-                      setState(() {});
-                    },
-                  )),
+                padding: EdgeInsets.all(10),
+                child: Row(children: [
+                  ListTile(
+                    title: Text("Normal"),
+                    leading: Radio(
+                        value: 1,
+                        groupValue: _radioVal,
+                        onChanged: (value) {
+                          setState(() {
+                            _radioVal = value.toString();
+                          });
+                        }),
+                  ),
+                  ListTile(
+                    title: Text("Vip"),
+                    leading: Radio(
+                        value: 0,
+                        groupValue: _radioVal,
+                        onChanged: (value) {
+                          setState(() {
+                            _radioVal = value.toString();
+                          });
+                        }),
+                  )
+                ]),
+              ),
               Container(
                 padding: EdgeInsets.all(10),
                 child: Row(
