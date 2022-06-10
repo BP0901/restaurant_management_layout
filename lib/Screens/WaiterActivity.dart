@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:restaurant_management/Screens/TableInfomationActivity.dart';
 
 import '../Util/constants.dart';
 
@@ -176,9 +178,13 @@ class _MenuFoodState extends State<MenuFood> {
                     );
                   }),
             ),
-            foodCard(1),
-            foodCard(1),
-            foodCard(1),
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: 10,
+                  itemBuilder: (context, index) => foodCard(index)),
+            ),
           ],
         ),
       ),
@@ -225,26 +231,29 @@ class ManageTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     tableRow(int index) {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          decoration: const BoxDecoration(color: kSecondaryColor),
-          child: Padding(
-            padding: const EdgeInsets.all(kDefaultPadding),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Bàn ăn $index",
-                  textScaleFactor: 1.5,
-                  style: const TextStyle(color: Colors.white),
-                ),
-                const Text(
-                  "(Trạng Thái)",
-                  textScaleFactor: 1.5,
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
+      return InkWell(
+        onTap: () => Get.to(TableInfomationActivity(tableName: index)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: const BoxDecoration(color: kSecondaryColor),
+            child: Padding(
+              padding: const EdgeInsets.all(kDefaultPadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Bàn ăn $index",
+                    textScaleFactor: 1.5,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  const Text(
+                    "(Trạng Thái)",
+                    textScaleFactor: 1.5,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

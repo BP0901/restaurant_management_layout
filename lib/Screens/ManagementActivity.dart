@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ManagermentActivity extends StatefulWidget {
-  ManagermentActivity({Key? key}) : super(key: key);
+  const ManagermentActivity({Key? key}) : super(key: key);
 
   @override
   State<ManagermentActivity> createState() => _ManagermentActivityState();
