@@ -18,8 +18,10 @@ class _MenuPage extends State<MenuPage> {
       ),
       drawer: DrawerMGTM(),
       body: Container(
+        color: kSupColor,
         padding: EdgeInsets.all(10),
-        child: Column(
+        child: 
+        Column(
           //In this lesson, we will replace the input form with "Modal Bottom Sheet"
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -116,7 +118,7 @@ class _bildListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(height: 500, child: _buildListView());
+    return Expanded(child: Container(child: _buildListView()));
   }
 }
 

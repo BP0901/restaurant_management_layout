@@ -43,33 +43,45 @@ class _TablePage extends State<TablePage> {
                       setState(() {});
                     },
                   )),
+              const Divider(),
               Container(
                 padding: EdgeInsets.all(10),
-                child: Row(children: [
-                  ListTile(
-                    title: Text("Normal"),
-                    leading: Radio(
-                        value: 1,
-                        groupValue: _radioVal,
-                        onChanged: (value) {
-                          setState(() {
-                            _radioVal = value.toString();
-                          });
-                        }),
-                  ),
-                  ListTile(
-                    title: Text("Vip"),
-                    leading: Radio(
-                        value: 0,
-                        groupValue: _radioVal,
-                        onChanged: (value) {
-                          setState(() {
-                            _radioVal = value.toString();
-                          });
-                        }),
-                  )
-                ]),
+                child: Row(
+                    // children: [0,1].map((int indexmap) => Radio<int>(
+                    //     value: indexmap,
+                    //     groupValue: this._radioVal,
+                    //     onChanged: (int value){
+                    //       setState(() => this._radioVal=value)
+                    //     },
+                    //     ))
+                    //     .toList(),
+                    // children: [
+                    //   ListTile(
+                    //     title: Text("Normal"),
+                    //     leading: Radio(
+                    //         value: 1,
+                    //         groupValue: _radioVal,
+                    //         onChanged: (value) {
+                    //           setState(() {
+                    //             _radioVal = value.toString();
+                    //           });
+                    //         }),
+                    //   ),
+                    //   ListTile(
+                    //     title: Text("Vip"),
+                    //     leading: Radio(
+                    //         value: 0,
+                    //         groupValue: _radioVal,
+                    //         onChanged: (value) {
+                    //           setState(() {
+                    //             _radioVal = value.toString();
+                    //           });
+                    //         }),
+                    //   )
+                    // ],++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    ),
               ),
+              const Divider(),
               Container(
                 padding: EdgeInsets.all(10),
                 child: Row(
